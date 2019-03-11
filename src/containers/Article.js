@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {openArticle} from '../actions/index'
-import Design from '../../node_modules/mineko-design/src/icons/index'
+// import {Button} from '../../node_modules/mineko-design/src/buttons/Button'
 
 
 class Article extends Component{

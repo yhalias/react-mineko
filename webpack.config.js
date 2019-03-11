@@ -22,8 +22,6 @@ module.exports = {
             loader: 'babel-loader',
             query: {
                 presets: ['@babel/preset-env', '@babel/preset-react']
-                // presets: ['react','env']
-                // 'es2015', 'stage-0',
             }
         }]
     },
