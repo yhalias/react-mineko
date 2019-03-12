@@ -36,13 +36,6 @@ class Article extends Component{
             </div>
         )
     }
-
-    // handleClick = () => {
-    //     console.log('clicked')
-    //     this.setState({
-    //         isOpen: !this.state.isOpen
-    //     })
-    // }
 }
 
 function matchDispatchToProps(dispatch) {

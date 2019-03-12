@@ -3,47 +3,58 @@ import ButtonGrid from '../../node_modules/mineko-design/src/buttons/ButtonGrid'
 import Button from '../../node_modules/mineko-design/src/buttons/Button'
 import Container from '../../node_modules/mineko-design/src/layout/Container'
 import ContainerItem from '../../node_modules/mineko-design/src/layout/ContainerItem'
-
 import Description from '../../node_modules/mineko-design/src/text/Description'
 
+
 class Contact extends Component {
-    render() {
-        return (
-        <Container justify='space-between'>
-
-            <ContainerItem gridSize={11} align='center'>
-                123
-            </ContainerItem>
-            {/*<ContainerItem gridSize={4}>*/}
-                {/*123*/}
-            {/*</ContainerItem>*/}
-        </Container>
-
-
-                    //
-                    // <Description headline="Cool headline" description="This text describes something"/>
-                    //
-                    // {/*<input type="text" placeholder="Vorname"/>*/}
-                    // {/*<input type="text" placeholder="Nachname"/>*/}
-                    // {/*<input type="text" placeholder="Strasse & Nr."/>*/}
-                    // {/*<input type="text" placeholder="PLZ"/>*/}
-                    // {/*<input type="text" placeholder="Ort"/>*/}
-                    //
-                    //
-                    // <ButtonGrid>
-                    //     <Button color="secondary">
-                    //         seconday
-                    //     </Button>
-                    //     <Button>
-                    //         primary
-                    //     </Button>
-                    // </ButtonGrid>
-
-
-        )
+    actionNext() {
+        console.log('next page')
     }
 
-}
+    render() {
+        return (
+            <Container justify='space-between' item>
 
+                <ContainerItem gridSize={12} align='center'>
+
+                    <Description align='left' headline="Ihre Kontaktdaten" description="Bitte tragen Sie Ihre Kontaktdaten ein."/>
+
+                    <ContainerItem gridSize={12} align='center'>
+                        <input  type="text" placeholder="Vorname"/>
+                    </ContainerItem>
+                    <ContainerItem gridSize={12} align='center'>
+                        <input type="text" placeholder="Nachname"/>
+                    </ContainerItem>
+                    <ContainerItem gridSize={12} align='center'>
+                        <input type="text" placeholder="Strasse & Nr."/>
+                    </ContainerItem>
+                    <ContainerItem gridSize={12} align='center'>
+                        <input type="text" placeholder="PLZ"/>
+                    </ContainerItem>
+                    <ContainerItem gridSize={12} align='center'>
+                        <input type="text" placeholder="Ort"/>
+                    </ContainerItem>
+
+                    <Description align='left' headline="E-Mail"
+                                 description="Wie sind Sie wanrend de Prufund erreichbar? Das Prufergebnis erhalten Sie von uns per E-Mail."/>
+
+                    <ContainerItem gridSize={12} align='center'>
+                        <input type="text" placeholder="E-Mail"/>
+                    </ContainerItem>
+
+                    <ButtonGrid>
+                        <Button color="secondary">
+                            Zuruck
+                        </Button>
+                        <Button onClick={this.actionNext}>
+                            Weiter
+                        </Button>
+                    </ButtonGrid>
+
+                </ContainerItem>
+            </Container>
+        )
+    }
+}
 
 export default Contact

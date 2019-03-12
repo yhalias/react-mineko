@@ -15,11 +15,15 @@ const Payment = Loadable({
     loading: LoadingPage,
 })
 
+const Home = Loadable({
+    loader: () => import('../containers/Home'),
+    loading: LoadingPage,
+})
+
 class Routes extends Component {
     render() {
         return (
             <Router history={history}>
-                <div>
                     {/*<header className="header container">*/}
                         {/*<nav className="navbar">*/}
                             {/*<div className="navbar-brand">*/}
@@ -36,11 +40,10 @@ class Routes extends Component {
                         {/*</nav>*/}
                     {/*</header>*/}
                     <Switch>
-                        <Route exact path="/" component={Contact}/>
+                        <Route exact path="/" component={Home}/>
                         <Route exact path="/contact" component={Contact}/>
                         <Route path="/payment" component={Payment}/>
                     </Switch>
-                </div>
             </Router>
         )
     }
