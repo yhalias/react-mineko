@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {openArticle} from '../actions/index'
-// import {Button} from '../../node_modules/mineko-design/src/buttons/Button'
-
 
 class Article extends Component{
 
@@ -13,7 +11,6 @@ class Article extends Component{
         this.state = {
             isOpen: false
         }
-
         // this.handleClick = handleClick.bind(this);
     }
 
