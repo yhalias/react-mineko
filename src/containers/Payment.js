@@ -10,7 +10,6 @@ class Payment extends Component {
     render() {
         return (
             <Container justify='space-between' item>
-
                 <ContainerItem gridSize={12} align='center'>
 
                     <Description align='left' headline="Ihr gewahltes Prufpaket"
