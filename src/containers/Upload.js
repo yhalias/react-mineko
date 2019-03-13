@@ -1,11 +1,26 @@
 import React, {Component} from 'react'
-import {ButtonGrid,Button} from 'mineko-design/src/buttons/index'
-import {ContainerItem, Container}from 'mineko-design/src/layout/index'
+import {withRouter} from 'react-router-dom';
+import {ButtonGrid, Button} from 'mineko-design/src/buttons/index'
+import {ContainerItem, Container} from 'mineko-design/src/layout/index'
 import Description from 'mineko-design/src/text/Description'
 
-class Upload extends Component{
-    render(){
-        return(
+class Upload extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            route: '',
+            prevRoute: 'payment',
+            nextRoute: 'notes',
+        };
+    }
+
+    routeChange() {
+        this.props.history.push(this.state.route);
+    }
+
+    render() {
+        return (
             <Container justify='space-between' item>
 
 
@@ -35,10 +50,14 @@ class Upload extends Component{
                     </ContainerItem>
 
                     <ButtonGrid>
-                        <Button color="secondary">
+                        <Button color="secondary" onClick={() => this.setState({route: this.state.prevRoute}, () => {
+                            this.routeChange()
+                        })}>
                             Zuruck
                         </Button>
-                        <Button onClick={this.actionNext}>
+                        <Button onClick={() => this.setState({route: this.state.nextRoute}, () => {
+                            this.routeChange()
+                        })}>
                             Weiter
                         </Button>
                     </ButtonGrid>
@@ -50,5 +69,4 @@ class Upload extends Component{
 
 }
 
-
-export default Upload
+export default withRouter(Upload)

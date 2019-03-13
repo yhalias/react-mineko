@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {withRouter} from 'react-router-dom';
 import ContainerItem from "mineko-design/src/layout/ContainerItem";
 import Container from "mineko-design/src/layout/Container";
 import Description from "mineko-design/src/text/Description";
@@ -7,6 +8,20 @@ import {ButtonGrid, Button, RadioGroup} from 'mineko-design/src/buttons/index'
 
 
 class Payment extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            route: '',
+            prevRoute: 'contact',
+            nextRoute: 'upload',
+        };
+    }
+
+    routeChange() {
+        this.props.history.push(this.state.route);
+    }
+
     render() {
         return (
             <Container justify='space-between' item>
@@ -16,11 +31,9 @@ class Payment extends Component {
                                  description="Wir freuen uns darauf Ihre Nebenkostenabrechung zu prufen und fur Sie einen aussagekrafrigen Prufbericht zu erstellen"
                                  item/>
 
-                    <Subtitle variant='subtitle2' align='left' item>
+                    <Subtitle variant='subtitle2' align='left'>
                         Aktualles Prufaufkommen: BADGE
                     </Subtitle>
-
-
 
                     <Container justify='space-between'>
                         <ContainerItem gridSize={8} align='left'>
@@ -43,7 +56,6 @@ class Payment extends Component {
                     </Container>
 
                     <H6 align='left'>Wie mochten Sie bezahlen? </H6>
-
 
                     <ContainerItem gridSize={12} align='left'>
                         <RadioGroup
@@ -79,8 +91,10 @@ class Payment extends Component {
                     </ContainerItem>
 
                     <ButtonGrid>
-                        <Button>
-                            jetzt buchen & bezahlen
+                        <Button onClick={() => this.setState({route: this.state.nextRoute}, () => {
+                            this.routeChange()
+                        })}>
+                            Jetzt buchen & bezahlen
                         </Button>
                     </ButtonGrid>
 
@@ -91,4 +105,4 @@ class Payment extends Component {
 
 }
 
-export default Payment
+export default withRouter(Payment)

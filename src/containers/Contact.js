@@ -1,20 +1,30 @@
 import React, {Component} from 'react'
-import {ButtonGrid,Button} from 'mineko-design/src/buttons/index'
-import {ContainerItem, Container}from 'mineko-design/src/layout/index'
+import {withRouter} from 'react-router-dom';
+import {ButtonGrid, Button} from 'mineko-design/src/buttons/index'
+import {ContainerItem, Container} from 'mineko-design/src/layout/index'
 import Description from 'mineko-design/src/text/Description'
 import Input from 'mineko-design/src/inputs/Input'
 import Checkbox from 'mineko-design/src/checkboxes/Checkbox'
 
 class Contact extends Component {
-    actionNext() {
-        console.log('next page')
+    constructor(props) {
+        super(props);
+        this.state = {
+            route: '',
+            prevRoute: '/',
+            nextRoute: 'payment',
+        };
+    }
+
+    routeChange() {
+        this.props.history.push(this.state.route);
     }
 
     render() {
         return (
             <Container justify='space-between' item>
 
-                <ContainerItem gridSize={12} >
+                <ContainerItem gridSize={12}>
 
                     <Description align='left'
                                  headline="Ihre Kontaktdaten"
@@ -46,15 +56,19 @@ class Contact extends Component {
                     </ContainerItem>
 
                     <ContainerItem gridSize={12} item>
-                        <Checkbox label="Ja, ich akzeptiere die AGB und Bestimmungen zum Datenschuts." />
+                        <Checkbox label="Ja, ich akzeptiere die AGB und Bestimmungen zum Datenschuts."/>
                     </ContainerItem>
 
-
                     <ButtonGrid>
-                        <Button color="secondary">
+                        <Button color="secondary"
+                                onClick={() => this.setState({route: this.state.prevRoute}, () => {
+                                    this.routeChange()
+                                })}>
                             Zuruck
                         </Button>
-                        <Button onClick={this.actionNext}>
+                        <Button onClick={() => this.setState({route: this.state.nextRoute}, () => {
+                            this.routeChange()
+                        })}>
                             Weiter
                         </Button>
                     </ButtonGrid>
@@ -65,4 +79,4 @@ class Contact extends Component {
     }
 }
 
-export default Contact
+export default withRouter(Contact)
