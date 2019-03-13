@@ -14,6 +14,15 @@ const Payment = Loadable({
     loader: () => import('../containers/Payment'),
     loading: LoadingPage,
 })
+const Upload = Loadable({
+    loader: () => import('../containers/Upload'),
+    loading: LoadingPage,
+})
+const Notes = Loadable({
+    loader: () => import('../containers/Notes'),
+    loading: LoadingPage,
+})
+
 
 const Home = Loadable({
     loader: () => import('../containers/Home'),
@@ -43,6 +52,8 @@ class Routes extends Component {
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/contact" component={Contact}/>
                         <Route path="/payment" component={Payment}/>
+                        <Route path="/upload" component={Upload}/>
+                        <Route path="/notes" component={Notes}/>
                     </Switch>
             </Router>
         )
