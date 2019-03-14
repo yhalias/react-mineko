@@ -27,7 +27,7 @@ class Notes extends Component {
                                  description="Laden Sie hier Ihre Nebenkostenabrechnung hoch oder direkt mit dem Handy abfotografieren."/>
 
                     <ContainerItem gridSize={12}>
-                        <Textarea label="Ihr Hinweis" fullWidth/>
+                        <Textarea label="Ihr Hinweis..." fullWidth/>
                     </ContainerItem>
 
                     <ContainerItem gridSize={12}>

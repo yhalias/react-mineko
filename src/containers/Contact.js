@@ -32,7 +32,11 @@ class Contact extends Component {
                         <Input type="text" label="Vorname" name="test" fullWidth/>
                     </ContainerItem>
                     <ContainerItem gridSize={12}>
-                        <Input type="text" label="Nachname" name="test" fullWidth/>
+                        <Input type="text"
+                               label="Nachname"
+                               name="test" fullWidth
+                               aria-describedby="component-error-text"
+                        />
                     </ContainerItem>
                     <ContainerItem gridSize={12}>
                         <Input type="text" label="Strasse & Nr." name="test" fullWidth/>

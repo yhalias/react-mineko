@@ -84,7 +84,7 @@ class Upload extends Component {
                     </ContainerItem>
 
                     <ContainerItem gridSize={12} item>
-                        <Checkbox label="Ja, ich akzeptiere die AGB und Bestimmungen zum Datenschuts."/>
+                        <Checkbox label="spater hochladen"/>
                     </ContainerItem>
 
                     <Description align='left' item
@@ -95,7 +95,7 @@ class Upload extends Component {
                         <DropzoneComponent config={config} eventHandlers={eventHandlers} djsConfig={djsConfig} />
                     </ContainerItem>
                     <ContainerItem gridSize={12} item>
-                        <Checkbox label="Ja, ich akzeptiere die AGB und Bestimmungen zum Datenschuts."/>
+                        <Checkbox label="spater hochladen"/>
                     </ContainerItem>
 
                     <ButtonGrid>

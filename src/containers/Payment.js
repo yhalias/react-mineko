@@ -5,13 +5,14 @@ import Container from "mineko-design/src/layout/Container";
 import Description from "mineko-design/src/text/Description";
 import {Subtitle, H6} from 'mineko-design/src/text/index'
 import {ButtonGrid, Button, RadioGroup} from 'mineko-design/src/buttons/index'
-
+import Checkbox from 'mineko-design/src/checkboxes/Checkbox'
 
 class Payment extends Component {
     state = {
         route: '',
         prevRoute: 'contact',
         nextRoute: 'upload',
+        paymentValue: 'paypal'
     };
 
     routeChange() {
@@ -33,19 +34,24 @@ class Payment extends Component {
                     </ContainerItem>
                 </ContainerItem>
 
+                {/*<ContainerItem  xs={8} sm={8} item>*/}
+                    {/*<RadioGroup*/}
+                        {/*name='MyRadioGroup'*/}
+                        {/*value=''*/}
+                        {/*items={[*/}
+                            {/*{*/}
+                                {/*'value': 'myvalue',*/}
+                                {/*'label': 'Mieter Wohnung Premium'*/}
+                            {/*}*/}
+                        {/*]}*/}
+                    {/*/>*/}
+                {/*</ContainerItem>*/}
 
                 <ContainerItem  xs={8} sm={8} item>
-                    <RadioGroup
-                        name='MyRadioGroup'
-                        value='myvalue'
-                        items={[
-                            {
-                                'value': 'myvalue',
-                                'label': 'Mieter Wohnung Premium'
-                            }
-                        ]}
-                    />
+                    <Checkbox label="Mieter Wohnung Premium"/>
                 </ContainerItem>
+
+
                 <ContainerItem xs={4} sm={4} item>
                     <Subtitle align='right'>
                         69$
@@ -61,8 +67,8 @@ class Payment extends Component {
                 <ContainerItem gridSize={12} align='left' xs={12} sm={12} item>
                     <RadioGroup
                         name='MyRadioGroup'
-                        value='paypal'
-                        onChange={val => console.log(val)}
+                        value={this.state.paymentValue}
+                        onChange={e => this.setState({paymentValue: e.target.value})}
                         items={[
                             {
                                 'value': 'paypal',
