@@ -33,21 +33,6 @@ class Routes extends Component {
     render() {
         return (
             <Router history={history}>
-                    {/*<header className="header container">*/}
-                        {/*<nav className="navbar">*/}
-                            {/*<div className="navbar-brand">*/}
-                                {/*<Link to="/contact">*/}
-                                    {/*<span className="navbar-item">Contact</span>*/}
-                                {/*</Link>*/}
-                            {/*</div>*/}
-
-                            {/*<div className="navbar-end">*/}
-                                {/*<Link to="/payment">*/}
-                                    {/*<span className="navbar-item">Payment</span>*/}
-                                {/*</Link>*/}
-                            {/*</div>*/}
-                        {/*</nav>*/}
-                    {/*</header>*/}
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/contact" component={Contact}/>

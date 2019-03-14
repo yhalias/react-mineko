@@ -7,14 +7,11 @@ import Input from 'mineko-design/src/inputs/Input'
 import Checkbox from 'mineko-design/src/checkboxes/Checkbox'
 
 class Contact extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            route: '',
-            prevRoute: '/',
-            nextRoute: 'payment',
-        };
-    }
+    state = {
+        route: '',
+        prevRoute: '/',
+        nextRoute: 'payment',
+    };
 
     routeChange() {
         this.props.history.push(this.state.route);
@@ -35,7 +32,11 @@ class Contact extends Component {
                         <Input type="text" label="Vorname" name="test" fullWidth/>
                     </ContainerItem>
                     <ContainerItem gridSize={12}>
-                        <Input type="text" label="Nachname" name="test" fullWidth/>
+                        <Input type="text"
+                               label="Nachname"
+                               name="test" fullWidth
+                               aria-describedby="component-error-text"
+                        />
                     </ContainerItem>
                     <ContainerItem gridSize={12}>
                         <Input type="text" label="Strasse & Nr." name="test" fullWidth/>

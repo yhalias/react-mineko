@@ -5,18 +5,15 @@ import Container from "mineko-design/src/layout/Container";
 import Description from "mineko-design/src/text/Description";
 import {Subtitle, H6} from 'mineko-design/src/text/index'
 import {ButtonGrid, Button, RadioGroup} from 'mineko-design/src/buttons/index'
-
+import Checkbox from 'mineko-design/src/checkboxes/Checkbox'
 
 class Payment extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            route: '',
-            prevRoute: 'contact',
-            nextRoute: 'upload',
-        };
-    }
+    state = {
+        route: '',
+        prevRoute: 'contact',
+        nextRoute: 'upload',
+        paymentValue: 'paypal'
+    };
 
     routeChange() {
         this.props.history.push(this.state.route);
@@ -24,81 +21,91 @@ class Payment extends Component {
 
     render() {
         return (
-            <Container justify='space-between' item>
-                <ContainerItem gridSize={12} align='center' item>
-
+            <Container justify='space-evenly' item>
+                <ContainerItem xs={12} sm={12} item>
                     <Description align='left' headline="Ihr gewahltes Prufpaket"
                                  description="Wir freuen uns darauf Ihre Nebenkostenabrechung zu prufen und fur Sie einen aussagekrafrigen Prufbericht zu erstellen"
                                  item/>
 
-                    <Subtitle variant='subtitle2' align='left'>
-                        Aktualles Prufaufkommen: BADGE
-                    </Subtitle>
-
-                    <Container justify='space-between'>
-                        <ContainerItem gridSize={8} align='left'>
-                            <RadioGroup
-                                name='MyRadioGroup'
-                                value='myvalue'
-                                items={[
-                                    {
-                                        'value': 'myvalue',
-                                        'label': 'Mieter Wohnung Premium'
-                                    }
-                                ]}
-                            />
-                        </ContainerItem>
-                        <ContainerItem gridSize={4}>
-                            <Subtitle align='right'>
-                                69$
-                            </Subtitle>
-                        </ContainerItem>
-                    </Container>
-
-                    <H6 align='left'>Wie mochten Sie bezahlen? </H6>
-
-                    <ContainerItem gridSize={12} align='left'>
-                        <RadioGroup
-                            name='MyRadioGroup'
-                            value='paypal'
-                            onChange={val => console.log(val)}
-                            items={[
-                                {
-                                    'value': 'paypal',
-                                    'label': 'PayPal',
-                                },
-                                {
-                                    'value': 'kreditkarte',
-                                    'label': 'Kreditarte',
-
-                                },
-                                {
-                                    'value': 'sofor',
-                                    'label': 'Sofortuberweisung'
-                                },
-                                {
-                                    'value': 'uber',
-                                    'label': 'Uberweisunng',
-
-                                },
-                                {
-                                    'value': 'crypto',
-                                    'label': 'Cryptowahrung (Bitcoin, Ether, Litecoin, Dash, XMR)',
-
-                                }
-                            ]}
-                        />
+                    <ContainerItem gridSize={12}>
+                        <Subtitle variant='subtitle2' align='left'>
+                            Aktualles Prufaufkommen: BADGE
+                        </Subtitle>
                     </ContainerItem>
-
-                    <ButtonGrid>
-                        <Button onClick={() => this.setState({route: this.state.nextRoute}, () => {
-                            this.routeChange()
-                        })}>
-                            Jetzt buchen & bezahlen
-                        </Button>
-                    </ButtonGrid>
-
                 </ContainerItem>
+
+                {/*<ContainerItem  xs={8} sm={8} item>*/}
+                    {/*<RadioGroup*/}
+                        {/*name='MyRadioGroup'*/}
+                        {/*value=''*/}
+                        {/*items={[*/}
+                            {/*{*/}
+                                {/*'value': 'myvalue',*/}
+                                {/*'label': 'Mieter Wohnung Premium'*/}
+                            {/*}*/}
+                        {/*]}*/}
+                    {/*/>*/}
+                {/*</ContainerItem>*/}
+
+                <ContainerItem  xs={8} sm={8} item>
+                    <Checkbox label="Mieter Wohnung Premium"/>
+                </ContainerItem>
+
+
+                <ContainerItem xs={4} sm={4} item>
+                    <Subtitle align='right'>
+                        69$
+                    </Subtitle>
+                </ContainerItem>
+
+                <ContainerItem xs={12} sm={12} item>
+                    <ContainerItem>
+                        <H6 align='left'>Wie mochten Sie bezahlen? </H6>
+                    </ContainerItem>
+                </ContainerItem>
+
+                <ContainerItem gridSize={12} align='left' xs={12} sm={12} item>
+                    <RadioGroup
+                        name='MyRadioGroup'
+                        value={this.state.paymentValue}
+                        onChange={e => this.setState({paymentValue: e.target.value})}
+                        items={[
+                            {
+                                'value': 'paypal',
+                                'label': 'PayPal',
+                            },
+                            {
+                                'value': 'kreditkarte',
+                                'label': 'Kreditarte',
+
+                            },
+                            {
+                                'value': 'sofor',
+                                'label': 'Sofortuberweisung'
+                            },
+                            {
+                                'value': 'uber',
+                                'label': 'Uberweisunng',
+
+                            },
+                            {
+                                'value': 'crypto',
+                                'label': 'Cryptowahrung (Bitcoin, Ether, Litecoin, Dash, XMR)',
+
+                            }
+                        ]}
+                    />
+                </ContainerItem>
+
+                <ButtonGrid>
+                    <Button onClick={() => this.setState({route: this.state.nextRoute}, () => {
+                        this.routeChange()
+                    })}>
+                        Jetzt buchen & bezahlen
+                    </Button>
+                </ButtonGrid>
+
+                {/*</ContainerItem>*/}
             </Container>
         )
     }
