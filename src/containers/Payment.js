@@ -5,7 +5,7 @@ import Container from "mineko-design/src/layout/Container";
 import Description from "mineko-design/src/text/Description";
 import {Subtitle, H6} from 'mineko-design/src/text/index'
 import {ButtonGrid, Button, RadioGroup} from 'mineko-design/src/buttons/index'
-import Checkbox from 'mineko-design/src/checkboxes/Checkbox'
+import Label from 'mineko-design/src/buttons/Label'
 
 class Payment extends Component {
     state = {
@@ -29,28 +29,24 @@ class Payment extends Component {
 
                     <ContainerItem gridSize={12}>
                         <Subtitle variant='subtitle2' align='left'>
-                            Aktualles Prufaufkommen: BADGE
+                            Aktualles Prufaufkommen: <Label text='hoch'/>
                         </Subtitle>
                     </ContainerItem>
                 </ContainerItem>
 
-                {/*<ContainerItem  xs={8} sm={8} item>*/}
-                    {/*<RadioGroup*/}
-                        {/*name='MyRadioGroup'*/}
-                        {/*value=''*/}
-                        {/*items={[*/}
-                            {/*{*/}
-                                {/*'value': 'myvalue',*/}
-                                {/*'label': 'Mieter Wohnung Premium'*/}
-                            {/*}*/}
-                        {/*]}*/}
-                    {/*/>*/}
-                {/*</ContainerItem>*/}
-
                 <ContainerItem  xs={8} sm={8} item>
-                    <Checkbox label="Mieter Wohnung Premium"/>
-                </ContainerItem>
+                    <RadioGroup
+                        name='MyRadioGroup'
+                        value='myvalue'
+                        items={[
+                            {
+                                'value': 'myvalue',
+                                'label': 'Mieter Wohnung Premium'
+                            },
 
+                        ]}
+                    />
+                </ContainerItem>
 
                 <ContainerItem xs={4} sm={4} item>
                     <Subtitle align='right'>
