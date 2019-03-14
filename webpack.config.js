@@ -6,7 +6,7 @@ module.exports = {
         inline: true,
         contentBase: './src',
         port: 8083,
-        host: '0.0.0.0',
+        // host: '0.0.0.0',
         historyApiFallback: true,
     },
 
