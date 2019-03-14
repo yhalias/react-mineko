@@ -7,14 +7,11 @@ import Input from 'mineko-design/src/inputs/Input'
 import Checkbox from 'mineko-design/src/checkboxes/Checkbox'
 
 class Contact extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            route: '',
-            prevRoute: '/',
-            nextRoute: 'payment',
-        };
-    }
+    state = {
+        route: '',
+        prevRoute: '/',
+        nextRoute: 'payment',
+    };
 
     routeChange() {
         this.props.history.push(this.state.route);
