@@ -1,6 +1,6 @@
-export const openArticle = (article) => {
-    return {
-        type: "ARTICLE_OPENED",
-        payload: article
-    }
-}
+// export const openArticle = (article) => {
+//     return {
+//         type: "ARTICLE_OPENED",
+//         payload: article
+//     }
+// }

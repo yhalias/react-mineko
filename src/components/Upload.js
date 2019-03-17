@@ -3,10 +3,8 @@ import ReactDOMServer from 'react-dom/server'
 import {withRouter} from 'react-router-dom'
 import {ButtonGrid, Button} from 'mineko-design/src/buttons/index'
 import {ContainerItem, Container} from 'mineko-design/src/layout/index'
-import Description from 'mineko-design/src/text/Description'
-import Checkbox from 'mineko-design/src/checkboxes/Checkbox'
-import DropzoneComponent from 'react-dropzone-component'
 import "../../styles/dropzone.css"
+import UploadForm from "./forms/UploadForm";
 
 class Upload extends Component {
     constructor(props) {
@@ -26,7 +24,7 @@ class Upload extends Component {
                 <div className="dz-preview dz-file-preview">
                     <div className="dz-details">
                         <div className="dz-filename"><span data-dz-name="true"></span></div>
-                        <img data-dz-thumbnail="true" />
+                        <img data-dz-thumbnail="true"/>
                     </div>
                     <div className="dz-progress"><span className="dz-upload" data-dz-uploadprogress="true"></span></div>
                     <div className="dz-success-mark"><span>✔</span></div>
@@ -52,14 +50,12 @@ class Upload extends Component {
         this.removedfile = file => console.log('removing...', file);
         this.dropzone = null;
     }
+
     routeChange() {
         this.props.history.push(this.state.route);
     }
 
     render() {
-        const config = this.componentConfig;
-        const djsConfig = this.djsConfig;
-
         // For a list of all possible events (there are many), see README.md!
         const eventHandlers = {
             init: dz => this.dropzone = dz,
@@ -72,44 +68,20 @@ class Upload extends Component {
         return (
             <Container justify='space-between' item>
 
-
                 <ContainerItem gridSize={12}>
 
-                    <Description align='left' item
-                                 headline="Nebenkostenabrechnung fur die Prufung hochladen"
-                                 description="Laden Sie hier Ihre Nebenkostenabrechnung hoch oder direkt mit dem Handy abfotografieren."/>
-
-                    <ContainerItem gridSize={12}>
-                        <DropzoneComponent config={config} eventHandlers={eventHandlers} djsConfig={djsConfig} />
-                    </ContainerItem>
-
-                    <ContainerItem gridSize={12} item>
-                        <Checkbox label="spater hochladen"/>
-                    </ContainerItem>
-
-                    <Description align='left' item
-                                 headline="Mietvertrag hochlladen"
-                                 description="Mietverrag hochladen hoch oder mit dem Hand abfotografieren. Fun eine seriose Prufung benorigen wie den Mietvertrag."/>
-
-                    <ContainerItem gridSize={12}>
-                        <DropzoneComponent config={config} eventHandlers={eventHandlers} djsConfig={djsConfig} />
-                    </ContainerItem>
-                    <ContainerItem gridSize={12} item>
-                        <Checkbox label="spater hochladen"/>
-                    </ContainerItem>
-
-                    <ButtonGrid>
-                        <Button color="secondary" onClick={() => this.setState({route: this.state.prevRoute}, () => {
-                            this.routeChange()
-                        })}>
-                            Zuruck
-                        </Button>
-                        <Button onClick={() => this.setState({route: this.state.nextRoute}, () => {
-                            this.routeChange()
-                        })}>
-                            Weiter
-                        </Button>
-                    </ButtonGrid>
+                    <UploadForm config={this.componentConfig}
+                                djsConfig={this.djsConfig}
+                                eventHandlers={eventHandlers}>
+                        <Buttons
+                            onClickNext={() => this.setState({route: this.state.nextRoute}, () => {
+                                this.routeChange()
+                            })}
+                            onClickPrev={() => this.setState({route: this.state.prevRoute}, () => {
+                                this.routeChange()
+                            })}
+                        />
+                    </UploadForm>
 
                 </ContainerItem>
             </Container>
@@ -117,5 +89,17 @@ class Upload extends Component {
     }
 
 }
+
+const Buttons = ({onClickPrev, onClickNext}) => (
+    <ButtonGrid>
+        <Button color="secondary"
+                onClick={onClickPrev}>
+            Zuruck
+        </Button>
+        <Button onClick={onClickNext}>
+            Weiter
+        </Button>
+    </ButtonGrid>
+);
 
 export default withRouter(Upload)
