@@ -9,6 +9,7 @@ import PaymentChoice from "./payments/PaymentChoice";
 import CardInfo from 'mineko-design/src/cards/CardInfo'
 import PartnersBanner from "mineko-design/src/trust/PartnersBanner";
 import ContactForm from "./forms/ContactForm";
+import StepsHeader from "mineko-design/src/header/StepsHeader";
 
 class ContactPayment extends Component {
     state = {
@@ -28,6 +29,11 @@ class ContactPayment extends Component {
                 <ContainerItem/>
 
                 <ContainerItem gridSize={8}>
+
+                    <ContainerItem item>
+                        <StepsHeader
+                            steps={['1. Besteleen & Bezahlen', '2. Unterlagen hochladen', '3. Prufbericht erhalten']}/>
+                    </ContainerItem>
 
                     {/* Container for Contact and Payment form block  */}
                     <Container justify='space-between' alignItems='flex-start'>
@@ -63,7 +69,7 @@ class ContactPayment extends Component {
                                       description="Wir freuen uns darauf Ihre Nebenkostenabrechung zu prufen und fun Sie einen aussagekraftigen Prufbericht zu erstellen."
                             />
 
-                            <PartnersBanner text="unsere Parthner:" />
+                            <PartnersBanner text="unsere Parthner:"/>
                         </ContainerItem>
                     </Container>
 
