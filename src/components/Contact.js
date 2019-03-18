@@ -2,9 +2,9 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom';
 import {Container} from 'mineko-design/src/layout/index'
-import ContactForm from './forms/contactForm'
 import ButtonGrid from "mineko-design/src/buttons/ButtonGrid";
 import Button from "mineko-design/src/buttons/Button";
+import ContactForm from "./forms/ContactForm";
 
 class Contact extends Component {
     state = {
@@ -19,8 +19,8 @@ class Contact extends Component {
 
     render() {
         return (
-            <Container justify='space-between'>
-                <ContactForm gridSize={12}>
+            <Container justify='space-between' item>
+                <ContactForm gridSize={12} item>
                     <Buttons
                         onClickNext={() => this.setState({route: this.state.nextRoute}, () => {
                             this.routeChange()

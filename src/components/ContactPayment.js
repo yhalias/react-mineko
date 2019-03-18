@@ -3,12 +3,12 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom';
 import {ContainerItem, Container} from 'mineko-design/src/layout/index'
-import ContactForm from './forms/contactForm'
 import ButtonGrid from "mineko-design/src/buttons/ButtonGrid";
 import Button from "mineko-design/src/buttons/Button";
 import PaymentChoice from "./payments/PaymentChoice";
 import CardInfo from 'mineko-design/src/cards/CardInfo'
 import PartnersBanner from "mineko-design/src/trust/PartnersBanner";
+import ContactForm from "./forms/ContactForm";
 
 class ContactPayment extends Component {
     state = {
@@ -31,7 +31,7 @@ class ContactPayment extends Component {
 
                     {/* Container for Contact and Payment form block  */}
                     <Container justify='space-between' alignItems='flex-start'>
-                        <ContainerItem gridSize={5}>
+                        <ContainerItem gridSize={5} item>
                             <ContactForm>
                                 <PaymentChoice
                                     paymentOptionValue={this.state.paymentValue}

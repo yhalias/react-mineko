@@ -11,7 +11,7 @@ const ContactForm = ({children, ...props}) => (
                      description="Bitte tragen Sie Ihre Kontaktdaten ein."
                      item/>
 
-        <Input type="text" label="Vorname" name="test" fullWidth/>
+        <Input type="text" label="Vorname" name="test"/>
         <Input type="text"
                label="Nachname"
                name="test" fullWidth
