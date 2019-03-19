@@ -12,6 +12,12 @@ const ProductSelector = Loadable({
     loading: LoadingPage
 })
 
+const ProductSelectorMobile = Loadable({
+    loader: () => import('../components/ProductSelectorMobile'),
+    loading: LoadingPage
+})
+
+
 const ContactPayment = Loadable({
     loader: () => import('../components/ContactPayment'),
     loading: LoadingPage
@@ -55,6 +61,7 @@ class Routes extends Component {
                 <Router history={history}>
                     <Switch>
                         <Route exact path="/" component={Home}/>
+                        <Route exact path="/selectproduct" component={ProductSelectorMobile}/>
                         <Route exact path="/contact" component={Contact}/>
                         <Route path="/payment" component={Payment}/>
                         <Route path="/payment-2" component={PaymentTwo}/>

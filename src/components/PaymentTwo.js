@@ -113,10 +113,10 @@ const Buttons = ({onClickPrev, onClickNext}) => (
     <ButtonGrid>
         <Button color="secondary"
                 onClick={onClickPrev}>
-            Zuruck
+            zuruck
         </Button>
         <Button onClick={onClickNext}>
-            Jetzt buchen & bezahlen
+            jetzt buchen & bezahlen
         </Button>
     </ButtonGrid>
 );

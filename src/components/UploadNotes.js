@@ -8,6 +8,7 @@ import Button from "mineko-design/src/buttons/Button";
 import UploadForm from "./forms/UploadForm";
 import NotesForm from "./forms/NotesForm";
 import StepsHeader from "mineko-design/src/header/StepsHeader";
+import MediaBanner from "mineko-design/src/trust/MediaBanner";
 
 class UploadNotes extends Component {
     state = {
@@ -66,11 +67,14 @@ class UploadNotes extends Component {
 }
 
 const Buttons = ({onClickNext}) => (
-    <ButtonGrid>
-        <Button onClick={onClickNext}>
-            jetzt buchen & bezahlen
-        </Button>
-    </ButtonGrid>
+    <div id='buttons-control'>
+        <ButtonGrid>
+            <Button onClick={onClickNext}>
+                jetzt buchen & bezahlen
+            </Button>
+        </ButtonGrid>
+        <MediaBanner text="Bekannt aus:" />
+    </div>
 );
 
 export default withRouter(UploadNotes)

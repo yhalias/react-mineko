@@ -10,7 +10,7 @@ const PaymentForm = ({children, paymentOptionValue, onChangePaymentOption, ...pr
     <Container justify='space-evenly' item>
         <ContainerItem xs={12} sm={12} item>
             <Description align='left' headline="Ihr gewahltes Prufpaket"
-                         description="Wir freuen uns darauf Ihre Nebenkostenabrechung zu prufen und fur Sie einen aussagekrafrigen Prufbericht zu erstellen"
+                         description="Wir freuen uns darauf Ihre Nebenkostenabrechung zu prufen und fur Sie einen aussagekrafrigen Prufbericht zu erstellen."
                          item/>
 
             <ContainerItem gridSize={12}>

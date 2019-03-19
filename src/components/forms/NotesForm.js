@@ -8,7 +8,7 @@ const NotesForm = ({children, gridSize, ...props}) => (
 
         <Description align='left' item
                      headline="Nebenkostenabrechnung fur die Prufung hochladen"
-                     description="Laden Sie hier Ihre Nebenkostenabrechnung hoch oder direkt mit dem Handy abfotografieren."/>
+                     description="Haden Sie konkrete Fragen oder Hinweise zu Ihrer Abrechnung? Maximal 300 Zeichen. (optional)"/>
 
         <Textarea label="Ihr Hinweis..." fullWidth/>
 

@@ -15,7 +15,6 @@ class Header extends Component {
                     <HeaderComponent
                         trustText="Sehr gut 4,77 von 5 | 181 Bewertungen"
                         trustOnClick={action}
-                        text="Jetzt hochladen, Prüfergebnis spätestens am 17.11.…"
                         headerOnClick={action}
                     />
                 </div>

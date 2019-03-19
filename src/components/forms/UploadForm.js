@@ -2,7 +2,12 @@ import React from 'react'
 import {ContainerItem, Container} from 'mineko-design/src/layout/index'
 import Description from 'mineko-design/src/text/Description'
 import Checkbox from 'mineko-design/src/checkboxes/Checkbox'
-import Dropzone from "../Dropzone";
+// import Dropzone from "../Dropzone";
+import Dropzone from 'react-dropzone'
+
+function onDrop(acceptedFiles){
+    console.log('123');
+}
 
 const UploadForm = ({children, ...props}) => (
     <Container justify='space-between' item>
@@ -13,7 +18,15 @@ const UploadForm = ({children, ...props}) => (
                          description="Laden Sie hier Ihre Nebenkostenabrechnung hoch oder direkt mit dem Handy abfotografieren."/>
 
             <ContainerItem gridSize={12}>
-                <Dropzone />
+
+                <Dropzone onDrop={onDrop}>
+                    {({getRootProps, getInputProps, isDragActive}) => (
+                        <div {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            {isDragActive ? "Drop it like it's hot!" : 'Click me or drag a file to upload!'}
+                        </div>
+                    )}
+                </Dropzone>
             </ContainerItem>
 
             <ContainerItem gridSize={12} item>
@@ -25,7 +38,7 @@ const UploadForm = ({children, ...props}) => (
                          description="Mietverrag hochladen hoch oder mit dem Hand abfotografieren. Fun eine seriose Prufung benorigen wie den Mietvertrag."/>
 
             <ContainerItem gridSize={12}>
-                <Dropzone />
+                {/*<Dropzone />*/}
             </ContainerItem>
             <ContainerItem gridSize={12} item>
                 <Checkbox label="spater hochladen"/>

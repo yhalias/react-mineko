@@ -10,11 +10,12 @@ import CardInfo from 'mineko-design/src/cards/CardInfo'
 import PartnersBanner from "mineko-design/src/trust/PartnersBanner";
 import ContactForm from "./forms/ContactForm";
 import StepsHeader from "mineko-design/src/header/StepsHeader";
+import MediaBanner from "mineko-design/src/trust/MediaBanner";
 
 class ContactPayment extends Component {
     state = {
         route: '',
-        prevRoute: '/',
+        prevRoute: 'selectproduct',
         nextRoute: 'uploadnotes',
         paymentValue: 'paypal'
     };
@@ -83,11 +84,14 @@ class ContactPayment extends Component {
 }
 
 const Buttons = ({onClickNext}) => (
-    <ButtonGrid>
-        <Button onClick={onClickNext}>
-            jetzt buchen & bezahlen
-        </Button>
-    </ButtonGrid>
+    <div id='buttons-control'>
+        <ButtonGrid>
+            <Button onClick={onClickNext}>
+                jetzt buchen & bezahlen
+            </Button>
+        </ButtonGrid>
+        <MediaBanner text="Bekannt aus:" />
+    </div>
 );
 
 export default withRouter(ContactPayment)
