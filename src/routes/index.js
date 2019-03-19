@@ -7,6 +7,11 @@ import { isMobile } from "react-device-detect"
 
 const history = createBrowserHistory();
 
+const ProductSelector = Loadable({
+    loader: () => import('../components/ProductSelector'),
+    loading: LoadingPage
+})
+
 const ContactPayment = Loadable({
     loader: () => import('../components/ContactPayment'),
     loading: LoadingPage
@@ -63,6 +68,8 @@ class Routes extends Component {
             <Router history={history}>
                 <Switch>
                     <Route exact path="/" component={Home}/>
+
+                    <Route exact path="/selectproduct" component={ProductSelector}/>
                     <Route exact path="/contactpayment" component={ContactPayment}/>
                     <Route exact path="/uploadnotes" component={UploadNotes}/>
                 </Switch>

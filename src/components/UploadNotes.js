@@ -7,6 +7,7 @@ import ButtonGrid from "mineko-design/src/buttons/ButtonGrid";
 import Button from "mineko-design/src/buttons/Button";
 import UploadForm from "./forms/UploadForm";
 import NotesForm from "./forms/NotesForm";
+import StepsHeader from "mineko-design/src/header/StepsHeader";
 
 class UploadNotes extends Component {
     state = {
@@ -27,6 +28,12 @@ class UploadNotes extends Component {
 
                 <ContainerItem gridSize={8}>
 
+                    <ContainerItem item>
+                        <StepsHeader
+                            currentStep={2}
+                            steps={['1. Besteleen & Bezahlen', '2. Unterlagen hochladen', '3. Prufbericht erhalten']}/>
+                    </ContainerItem>
+
                     {/* Container for Contact and Payment form block  */}
                     <Container justify='space-between' item>
                         <ContainerItem gridSize={5}>
@@ -46,9 +53,8 @@ class UploadNotes extends Component {
 
                         <ContainerItem/>
 
-                        <ContainerItem gridSize={5}>
+                        <ContainerItem gridSize={5}></ContainerItem>
 
-                        </ContainerItem>
                     </Container>
 
                 </ContainerItem>

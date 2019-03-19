@@ -4,7 +4,11 @@ import Description from 'mineko-design/src/text/Description'
 import Input from 'mineko-design/src/inputs/Input'
 import Checkbox from 'mineko-design/src/checkboxes/Checkbox'
 
-const ContactForm = ({children, ...props}) => (
+const spanStyle = {
+    textDecoration: 'underline'
+}
+
+const ContactForm = ({children, classes, ...props}) => (
     <ContainerItem gridSize={12}>
         <Description align='left'
                      headline="Ihre Kontaktdaten"
@@ -29,7 +33,14 @@ const ContactForm = ({children, ...props}) => (
 
         <Input type="email" label="E-Mail" name="email" fullWidth/>
 
-        <Checkbox label="Ja, ich akzeptiere die AGB und Bestimmungen zum Datenschuts."/>
+        <Checkbox label={(
+            <label>
+                Ja, ich akzeptiere die <span style={spanStyle}
+                                             onClick={() => console.log('AGB Action')}>AGB</span> und
+                Bestimmungen zum <span style={spanStyle}
+                                       onClick={() => console.log('Datenschuts Action')}>Datenschuts</span>
+            </label>
+        )}/>
 
         {children}
 

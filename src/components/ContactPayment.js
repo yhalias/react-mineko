@@ -32,6 +32,7 @@ class ContactPayment extends Component {
 
                     <ContainerItem item>
                         <StepsHeader
+                            currentStep={1}
                             steps={['1. Besteleen & Bezahlen', '2. Unterlagen hochladen', '3. Prufbericht erhalten']}/>
                     </ContainerItem>
 
