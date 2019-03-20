@@ -8,9 +8,9 @@ import Sofort from "mineko-design/src/icons/Sofort";
 
 const PaymentChoice = ({children, paymentOptionValue, onChangePaymentOption, ...props}) => (
     <ContainerItem gridSize={12} >
-
+        <ContainerItem item>
         <H6 align='left'>Wie mochten Sie bezahlen? </H6>
-
+        </ContainerItem>
         <RadioGroup
             name='paymentOption'
             value={paymentOptionValue}

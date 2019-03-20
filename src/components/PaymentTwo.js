@@ -7,6 +7,7 @@ import Input from "mineko-design/src/inputs/Input";
 import SelectDropdown from "mineko-design/src/inputs/SelectDropdown";
 import ContainerItem from "mineko-design/src/layout/ContainerItem";
 import Subtitle from "mineko-design/src/text/Subtitle";
+import CVV from "mineko-design/src/icons/CVV";
 
 let monthArray = [];
 let years = [];
@@ -39,9 +40,8 @@ class PaymentTwo extends Component {
                              description="Bitte tragen Sie Angaben Ihren Kreditkarte ein um die Bezahlung in Hohe  von 49$ abzuschlieBen."
                              item/>
 
-                <Container justify='space-evenly' item>
                     <ContainerItem gridSize={2}>
-                        <Subtitle variant='subtitle2' align='right'>
+                        <Subtitle align='right'>
                             Nummer:
                         </Subtitle>
                     </ContainerItem>
@@ -49,10 +49,9 @@ class PaymentTwo extends Component {
                     <ContainerItem gridSize={10}>
                         <Input type="number" name="nummer" fullWidth/>
                     </ContainerItem>
-                </Container>
-                <Container justify='space-evenly' item>
+
                     <ContainerItem gridSize={2}>
-                        <Subtitle variant='subtitle2' align='right'>
+                        <Subtitle align='right'>
                             Inhaber:
                         </Subtitle>
                     </ContainerItem>
@@ -60,10 +59,9 @@ class PaymentTwo extends Component {
                     <ContainerItem gridSize={10}>
                         <Input type="number" name="nummer" fullWidth/>
                     </ContainerItem>
-                </Container>
-                <Container justify='space-evenly' item>
+
                     <ContainerItem gridSize={2}>
-                        <Subtitle variant='subtitle2' align='right'>
+                        <Subtitle align='right'>
                             gultig bis:
                         </Subtitle>
                     </ContainerItem>
@@ -79,10 +77,10 @@ class PaymentTwo extends Component {
                             onChange={e => this.setState({selectedMonth: e.target.value})}
                         />
                     </ContainerItem>
-                </Container>
-                <Container justify='space-evenly' item>
+
+
                     <ContainerItem gridSize={2}>
-                        <Subtitle variant='subtitle2' align='right'>
+                        <Subtitle align='right'>
                             CVV
                         </Subtitle>
                     </ContainerItem>
@@ -90,11 +88,8 @@ class PaymentTwo extends Component {
                         <Input type="number" name="nummer"  placeholder="Ort" />
                     </ContainerItem>
                     <ContainerItem gridSize={8}>
-                        123
+                        <CVV width={216} height={32}/>
                     </ContainerItem>
-
-                </Container>
-
 
                 <Buttons
                     onClickNext={() => this.setState({route: this.state.nextRoute}, () => {

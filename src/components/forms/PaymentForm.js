@@ -36,7 +36,7 @@ const PaymentForm = ({children, paymentOptionValue, onChangePaymentOption, ...pr
 
         <ContainerItem xs={4} sm={4} item>
             <Subtitle align='right'>
-                69$
+                € 69,-
             </Subtitle>
         </ContainerItem>
 
