@@ -4,17 +4,8 @@ import {withRouter} from 'react-router-dom';
 import {Container} from 'mineko-design/src/layout/index'
 import ButtonGrid from "mineko-design/src/buttons/ButtonGrid";
 import Button from "mineko-design/src/buttons/Button";
-import ContactForm from "./forms/ContactForm";
 import ContainerItem from "mineko-design/src/layout/ContainerItem";
-import Description from "mineko-design/src/text/Description";
-import Input from "mineko-design/src/inputs/Input";
-import Checkbox from "mineko-design/src/checkboxes/Checkbox";
 import H5 from "mineko-design/src/text/H5";
-import StepsHeader from "mineko-design/src/header/StepsHeader";
-import PaymentChoice from "./payments/PaymentChoice";
-import CardInfo from "mineko-design/src/cards/CardInfo";
-import PartnersBanner from "mineko-design/src/trust/PartnersBanner";
-import Footer from "./layout/Footer";
 import MediaBanner from "mineko-design/src/trust/MediaBanner";
 import RadioGroupLarge from "mineko-design/src/buttons/RadioGroupLarge";
 
