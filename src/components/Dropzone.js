@@ -1,50 +1,57 @@
-import React from 'react'
-import {ContainerItem} from 'mineko-design/src/layout/index'
-import DropzoneComponent from "react-dropzone-component";
-import ReactDOMServer from "react-dom/server";
-import "../../styles/dropzone.css"
+import React, {Component} from 'react';
+import Dropzone from 'react-dropzone';
+import {ContainerItem, Container} from 'mineko-design/src/layout/index'
+import Description from "mineko-design/src/text/Description";
 
-// let callbackArray = [() => console.log('Hi!'), () => console.log('Ho!')];
-// let callback = () => console.log('Hello!');
-// let success = file => console.log('uploaded', file);
-// let removedfile = file => console.log('removing...', file);
-// let dropzone = null;
-//
-// const config = {
-//     iconFiletypes: ['.jpg', '.png', '.gif'],
-//     showFiletypeIcon: false,
-//     postUrl: '/'
-// }
-//
-// const eventHandlers = {
-//     init: dz => dropzone = dz,
-//     drop: callbackArray,
-//     addedfile: callback,
-//     success: success,
-//     removedfile: removedfile
-// }
-// const djsConfig = {
-//     previewTemplate: ReactDOMServer.renderToStaticMarkup(
-//         <div className="dz-preview dz-file-preview">
-//             <div className="dz-details">
-//                 <div className="dz-filename"><span data-dz-name="true"></span></div>
-//                 <img data-dz-thumbnail="true"/>
-//             </div>
-//             <div className="dz-progress"><span className="dz-upload" data-dz-uploadprogress="true"></span></div>
-//             <div className="dz-success-mark"><span>✔</span></div>
-//             <div className="dz-error-mark"><span>✘</span></div>
-//             {/*<div className="dz-error-message"><span data-dz-errormessage="true"></span></div>*/}
-//         </div>
-//     )
-// }
+const uploaderStyle = {
+    border: '1px dashed #979797',
+    borderRadius: 4,
+    backgroundColor: 'white',
+    height: '100%',
+    padding: 0
+}
+const textBlockStyle = {
+    height: 85,
+    lineHeight: 85,
+    display: 'flex'
+}
 
-const Dropzone = ({children, ...props}) => (
-''
+class DropzoneComponent extends Component {
+    constructor() {
+        super();
+        this.onDrop = (files) => {
+            this.setState({files})
+        };
+        this.state = {
+            files: []
+        };
+    }
 
-)
+    render() {
+        const files = this.state.files.map(file => (
+            <li key={file.name}>
+                {file.name} - {file.size} bytes
+            </li>
+        ));
 
-//     <ContainerItem gridSize={12}>
-//     <DropzoneComponent config={config} eventHandlers={eventHandlers} djsConfig={djsConfig}>componene</DropzoneComponent>
-// </ContainerItem>
-
-export default Dropzone;
+        return (
+            <Dropzone onDrop={this.onDrop}>
+                {({getRootProps, getInputProps}) => (
+                    <Container>
+                        <ContainerItem gridSize={12} align="center" style={uploaderStyle}>
+                            <div {...getRootProps()} style={textBlockStyle}>
+                                <input {...getInputProps()} />
+                                <Description headline="Hier klicken" description="Scan hochladen oder fotogradieren."/>
+                            </div>
+                            <div>
+                                {/*<h4>Files</h4>*/}
+                                <ul>{files}</ul>
+                            </div>
+                        </ContainerItem>
+                    </Container>
+                )}
+            </Dropzone>
+        );
+    }
+}
+export default DropzoneComponent
